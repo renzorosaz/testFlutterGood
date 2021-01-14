@@ -50,4 +50,25 @@ class OpenWeatherMapAPI {
     print(mainTemp);
     return mainTemp;
   }
+
+  Future<List> getTemDays(Location location) async {
+    // print(location);
+    var response = await http.get(
+        "${url}onecall?lat=${location.latitude}&lon=${location.longitude}&exclude=hourly,minutely&appid=${apiKey}");
+
+    var jsonResponse;
+
+    if (response.statusCode == 200) {
+      var jsonReponse = convert.jsonDecode(response.body)["daily"];
+
+      List dias = jsonReponse.map((e) => e).toList();
+
+      print("resu min" + dias[0]["temp"]["min"].toString());
+      print("resu max" + dias[0]["temp"]["max"].toString());
+
+      return dias;
+    } else {
+      print(response.statusCode);
+    }
+  }
 }

@@ -71,6 +71,17 @@ class _HomeViewState extends State<HomeView> {
           SizedBox(
             height: 24,
           ),
+          Center(
+                child: Text(
+                  forecast != null
+                      ? forecast.current.description
+                      : "Ingrese la ciudad",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w300),
+                ),
+              ),
           
         ],
       ),
