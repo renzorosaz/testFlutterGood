@@ -72,5 +72,32 @@ class OpenWeatherMapAPI {
     }
   }
 
+  Future<List> getWeatherDay(Location location) async {
+   // print(location);
+    var response = await http.get(
+        "${url}onecall?lat=${location.latitude}&lon=${location.longitude}&exclude=hourly,minutely&appid=${apiKey}");
+
+    if (response.statusCode == 200) {
+
+        var jsonReponse = convert.jsonDecode(response.body)["daily"];
+
+        print(jsonReponse);
+
+        List climDia = jsonReponse.map((e) => e['weather'][0]).toList();
+
+        print(climDia);
+
+        
+        // print("list1"+climDia[0]["main"].toString().toLowerCase());
+        // print("list2"+climDia[1]["main"].toString().toLowerCase());
+        // print("list3"+climDia[2]["main"].toString().toLowerCase());
+        // print("list4"+climDia[3]["main"].toString().toLowerCase());
+
+
+        return climDia;
+
+    }
+  }
+
   
 }

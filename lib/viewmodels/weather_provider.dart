@@ -33,6 +33,7 @@ class WeatherProvider extends ChangeNotifier{
     tempDia = await api.getTemDays(location);
     //print(tempDia);
 
+    climDia= await api.getWeatherDay(location);
 
     print(forecast); 
     //muy importante, notificar a los hijos
