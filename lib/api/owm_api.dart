@@ -38,4 +38,16 @@ class OpenWeatherMapAPI {
     return Forecast.fromJson(jsonDecode(response.body));
   }
 
+  Future<MainClass> getTemperature(String city) async {
+    // print(city);
+    var response = await http.get("${url}weather?q=${city}&appid=${apiKey}");
+
+    if (response.statusCode != 200) {
+      throw Exception(response.body.toString());
+    }
+    var jsonResponse = convert.jsonDecode(response.body);
+    MainClass mainTemp = MainClass.fromJson(jsonDecode(response.body)["main"]);
+    print(mainTemp);
+    return mainTemp;
+  }
 }

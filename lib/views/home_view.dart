@@ -3,6 +3,8 @@ import 'package:prueba_goodm/models/forecast.dart';
 import 'package:prueba_goodm/models/temperature.dart';
 import 'package:prueba_goodm/viewmodels/weather_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:prueba_goodm/views/widgets/temperature_view.dart';
+
 import 'package:prueba_goodm/views/widgets/weather_info.dart';
 
 class HomeView extends StatefulWidget {
@@ -17,9 +19,7 @@ class _HomeViewState extends State<HomeView> {
     final _text = TextEditingController();
     Forecast forecast = Provider.of<WeatherProvider>(context).forecast;
 
-    List tempDia = Provider.of<WeatherProvider>(context).tempDia;
-    MainClass temp = Provider.of<WeatherProvider>(context).temp;
-    var climDia = Provider.of<WeatherProvider>(context).climDia;
+     MainClass temp = Provider.of<WeatherProvider>(context).temp;
 
     return Scaffold(
       body: ListView(
@@ -47,7 +47,7 @@ class _HomeViewState extends State<HomeView> {
                   child: TextField(
                     controller: _text,
                     decoration: InputDecoration(
-                        suffix: tempDia != null
+                        suffix: forecast != null
                             ? Container(
                                 width: 20,
                                 height: 20,
@@ -63,10 +63,15 @@ class _HomeViewState extends State<HomeView> {
               ],
             ),
           ),
+          TempeView(temp:temp),
           SizedBox(
             height: 24,
           ),
           WeatherInfo(forecast: forecast),
+          SizedBox(
+            height: 24,
+          ),
+          
         ],
       ),
     );

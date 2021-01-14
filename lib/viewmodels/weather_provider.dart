@@ -27,6 +27,9 @@ class WeatherProvider extends ChangeNotifier{
     // luego busco los pronosticos
     forecast = await api.getForecast(location);
 
+   //buscar la temperatura
+    temp= await api.getTemperature(value);
+
     print(forecast); 
   }
 
