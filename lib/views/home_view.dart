@@ -87,7 +87,7 @@ class _HomeViewState extends State<HomeView> {
             child: Text(
               forecast != null
                   ? forecast.current.description
-                  : "Ingrese la ciudad",
+                  : "-",
               style: GoogleFonts.baloo(fontSize: 20),
             ),
           ),
@@ -101,7 +101,13 @@ class _HomeViewState extends State<HomeView> {
           //
           tempDia != null
               ? WeatherDaysView(tempDia: tempDia, climDia: climDia)
-              : Container()
+              : Padding(
+                padding: const EdgeInsets.only(right: 20, left: 20),
+                child: Text(
+                "Week Weather",
+                style: GoogleFonts.baloo(fontSize: 25),
+            ),
+              ),
         ],
       ),
     );

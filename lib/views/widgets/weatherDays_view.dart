@@ -29,8 +29,7 @@ class WeatherDaysView extends StatelessWidget {
             padding: const EdgeInsets.only(right: 175),
             child: Text(
               "Week Weather",
-               style: GoogleFonts.baloo(
-                        fontSize: 25),
+              style: GoogleFonts.baloo(fontSize: 25),
             ),
           ),
           SizedBox(
@@ -56,8 +55,7 @@ class WeatherDaysView extends StatelessWidget {
                                 Column(
                                   children: [
                                     Text("Temp Min",
-                                        style: TextStyle(
-                                            color: Colors.blueAccent,
+                                        style: GoogleFonts.baloo(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold)),
                                     Text(
@@ -65,9 +63,8 @@ class WeatherDaysView extends StatelessWidget {
                                             ? tempDia[i]["temp"]["min"]
                                                 .toString()
                                             : "No",
-                                        style: TextStyle(
-                                            color: Colors.blueAccent,
-                                            fontSize: 15,
+                                        style: GoogleFonts.baloo(
+                                            fontSize: 15,color: Colors.blueAccent,
                                             fontWeight: FontWeight.bold)),
                                   ],
                                 ),
@@ -78,8 +75,7 @@ class WeatherDaysView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text("Temp Max",
-                                        style: TextStyle(
-                                            color: Colors.redAccent,
+                                        style: GoogleFonts.baloo(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold)),
                                     Text(
@@ -87,9 +83,8 @@ class WeatherDaysView extends StatelessWidget {
                                             ? tempDia[i]["temp"]["max"]
                                                 .toString()
                                             : "NO",
-                                        style: TextStyle(
-                                            color: Colors.redAccent,
-                                            fontSize: 15,
+                                      style: GoogleFonts.baloo(
+                                            fontSize: 15,color: Colors.redAccent,
                                             fontWeight: FontWeight.bold)),
                                   ],
                                 ),

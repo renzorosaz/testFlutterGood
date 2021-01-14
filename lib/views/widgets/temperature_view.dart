@@ -44,7 +44,7 @@ class _TempeViewState extends State<TempeView> {
                     Text(
                       "Temp. min",
                       style: GoogleFonts.baloo(
-                          fontSize: 25, fontWeight: FontWeight.bold),
+                          fontSize: 25,),
                     ),
                     Text(
                       widget.temp != null
@@ -73,7 +73,7 @@ class _TempeViewState extends State<TempeView> {
                   children: [
                     Text("Temp. max",
                         style: GoogleFonts.baloo(
-                            fontSize: 25, fontWeight: FontWeight.bold)),
+                            fontSize: 25)),
                     Text(
                       widget.temp != null
                           ? (((widget.temp.tempMax) - 32) * 5 / 9)

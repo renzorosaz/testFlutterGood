@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:prueba_goodm/models/forecast.dart';
 import 'package:prueba_goodm/models/weather.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class WeatherInfo extends StatelessWidget {
-  
   const WeatherInfo({
     Key key,
     @required this.forecast,
@@ -18,29 +18,41 @@ class WeatherInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Column(
       children: [
-        Column(
+        Padding(
+          padding: const EdgeInsets.only(right: 250),
+          child: Text(
+            "Weather",
+            style: GoogleFonts.baloo(fontSize: 25),
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Text("Weather",
-            style: GoogleFonts.baloo(
-                        fontSize: 25, fontWeight: FontWeight.bold),),
-            Text(
-              forecast !=null ?"${formatTemp(forecast.current.temp)}°": "-",
-             style: GoogleFonts.baloo(
-                        fontSize: 20, fontWeight: FontWeight.w300),
+            Column(
+              children: [
+                Text(
+                  forecast != null
+                      ? "${formatTemp(forecast.current.temp)}°"
+                      : "-",
+                  style: GoogleFonts.baloo(
+                      fontSize: 20, fontWeight: FontWeight.w300),
+                ),
+                Text(
+                  forecast != null
+                      ? "Thermal sensation ${formatTemp(forecast.current.feelLikeTemp)}°"
+                      : "-",
+                  style: GoogleFonts.baloo(
+                      fontSize: 15, fontWeight: FontWeight.w300),
+                ),
+              ],
             ),
-            Text(
-             forecast !=null ? "Thermal sensation ${formatTemp(forecast.current.feelLikeTemp)}°" :"-",
-              style: GoogleFonts.baloo(
-                        fontSize: 15, fontWeight: FontWeight.w300),
-            ),
+            buildWeatherImage(forecast != null
+                ? forecast.current.condition
+                : WeatherCondition.clear)
           ],
         ),
-        buildWeatherImage(forecast !=null ? forecast.current.condition : WeatherCondition.clear)
       ],
     );
   }
