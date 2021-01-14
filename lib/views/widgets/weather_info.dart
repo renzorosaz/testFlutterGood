@@ -24,7 +24,7 @@ class WeatherInfo extends StatelessWidget {
           padding: const EdgeInsets.only(right: 250),
           child: Text(
             "Weather",
-            style: GoogleFonts.baloo(fontSize: 25),
+            style: GoogleFonts.baloo(fontSize: 25,color: Colors.white),
           ),
         ),
         Row(
@@ -37,14 +37,14 @@ class WeatherInfo extends StatelessWidget {
                       ? "${formatTemp(forecast.current.temp)}°"
                       : "-",
                   style: GoogleFonts.baloo(
-                      fontSize: 20, fontWeight: FontWeight.w300),
+                      fontSize: 20, fontWeight: FontWeight.w300,color: Colors.white),
                 ),
                 Text(
                   forecast != null
                       ? "Thermal sensation ${formatTemp(forecast.current.feelLikeTemp)}°"
                       : "-",
                   style: GoogleFonts.baloo(
-                      fontSize: 15, fontWeight: FontWeight.w300),
+                      fontSize: 15, fontWeight: FontWeight.w300,color: Colors.white),
                 ),
               ],
             ),

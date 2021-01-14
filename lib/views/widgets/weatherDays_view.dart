@@ -29,7 +29,7 @@ class WeatherDaysView extends StatelessWidget {
             padding: const EdgeInsets.only(right: 175),
             child: Text(
               "Week Weather",
-              style: GoogleFonts.baloo(fontSize: 25),
+              style: GoogleFonts.baloo(fontSize: 25,color: Colors.white),
             ),
           ),
           SizedBox(
@@ -57,7 +57,7 @@ class WeatherDaysView extends StatelessWidget {
                                     Text("Temp Min",
                                         style: GoogleFonts.baloo(
                                             fontSize: 18,
-                                            fontWeight: FontWeight.bold)),
+                                            fontWeight: FontWeight.bold,color: Colors.white)),
                                     Text(
                                         tempDia != null
                                             ? tempDia[i]["temp"]["min"]
@@ -77,7 +77,7 @@ class WeatherDaysView extends StatelessWidget {
                                     Text("Temp Max",
                                         style: GoogleFonts.baloo(
                                             fontSize: 18,
-                                            fontWeight: FontWeight.bold)),
+                                            fontWeight: FontWeight.bold,color: Colors.white)),
                                     Text(
                                         tempDia != null
                                             ? tempDia[i]["temp"]["max"]

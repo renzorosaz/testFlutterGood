@@ -33,7 +33,7 @@ class _TempeViewState extends State<TempeView> {
               children: [
                 Icon(
                   Icons.trending_down_rounded,
-                  color: Colors.black,
+                  color: Colors.white,
                   size: 40,
                 ),
                 SizedBox(
@@ -44,7 +44,7 @@ class _TempeViewState extends State<TempeView> {
                     Text(
                       "Temp. min",
                       style: GoogleFonts.baloo(
-                          fontSize: 25,),
+                          fontSize: 25,color: Colors.white),
                     ),
                     Text(
                       widget.temp != null
@@ -53,7 +53,7 @@ class _TempeViewState extends State<TempeView> {
                               " Cº"
                           : "-",
                       style: GoogleFonts.baloo(
-                          fontSize: 15, fontWeight: FontWeight.w300),
+                          fontSize: 15, fontWeight: FontWeight.w300,color: Colors.white),
                     ),
                   ],
                 ),
@@ -63,7 +63,7 @@ class _TempeViewState extends State<TempeView> {
               children: [
                 Icon(
                   Icons.trending_up_rounded,
-                  color: Colors.black,
+                  color: Colors.white,
                   size: 40,
                 ),
                 SizedBox(
@@ -73,7 +73,7 @@ class _TempeViewState extends State<TempeView> {
                   children: [
                     Text("Temp. max",
                         style: GoogleFonts.baloo(
-                            fontSize: 25)),
+                            fontSize: 25,color: Colors.white)),
                     Text(
                       widget.temp != null
                           ? (((widget.temp.tempMax) - 32) * 5 / 9)
@@ -81,7 +81,7 @@ class _TempeViewState extends State<TempeView> {
                               " Cº"
                           : "-",
                       style: GoogleFonts.baloo(
-                          fontSize: 15, fontWeight: FontWeight.w300),
+                          fontSize: 15, fontWeight: FontWeight.w300,color: Colors.white),
                     )
                   ],
                 ),
