@@ -17,9 +17,12 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     final _text = TextEditingController();
+
     Forecast forecast = Provider.of<WeatherProvider>(context).forecast;
 
      MainClass temp = Provider.of<WeatherProvider>(context).temp;
+
+      List tempDia = Provider.of<WeatherProvider>(context).tempDia;
 
     return Scaffold(
       body: ListView(
@@ -47,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
                   child: TextField(
                     controller: _text,
                     decoration: InputDecoration(
-                        suffix: forecast != null
+                        suffix: tempDia != null
                             ? Container(
                                 width: 20,
                                 height: 20,

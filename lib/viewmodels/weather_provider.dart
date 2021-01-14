@@ -29,8 +29,14 @@ class WeatherProvider extends ChangeNotifier{
 
    //buscar la temperatura
     temp= await api.getTemperature(value);
+    //print(temp);
+    tempDia = await api.getTemDays(location);
+    //print(tempDia);
+
 
     print(forecast); 
+    //muy importante, notificar a los hijos
+    notifyListeners();
   }
 
 }
