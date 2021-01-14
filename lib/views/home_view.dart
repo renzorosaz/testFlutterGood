@@ -4,7 +4,8 @@ import 'package:prueba_goodm/models/temperature.dart';
 import 'package:prueba_goodm/viewmodels/weather_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:prueba_goodm/views/widgets/temperature_view.dart';
-
+import 'package:prueba_goodm/views/widgets/weatherDays_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:prueba_goodm/views/widgets/weather_info.dart';
 
 class HomeView extends StatefulWidget {
@@ -20,9 +21,11 @@ class _HomeViewState extends State<HomeView> {
 
     Forecast forecast = Provider.of<WeatherProvider>(context).forecast;
 
-     MainClass temp = Provider.of<WeatherProvider>(context).temp;
-
-      List tempDia = Provider.of<WeatherProvider>(context).tempDia;
+    MainClass temp = Provider.of<WeatherProvider>(context).temp;
+    //recupero temperatura diaria
+    List tempDia = Provider.of<WeatherProvider>(context).tempDia;
+    //recupero clima diario
+    List climDia = Provider.of<WeatherProvider>(context).climDia;
 
     return Scaffold(
       body: ListView(
@@ -50,13 +53,14 @@ class _HomeViewState extends State<HomeView> {
                   child: TextField(
                     controller: _text,
                     decoration: InputDecoration(
+                        //si selecciona el input, cargara un indicador hasta que se termine la accion
                         suffix: tempDia != null
                             ? Container(
                                 width: 20,
                                 height: 20,
                                 child: CircularProgressIndicator())
                             : null,
-                        hintText: "Ingrese Ciudad"),
+                        hintText: "Ingrese Ciudad",hintStyle: GoogleFonts.baloo(fontSize: 15)),
                     onSubmitted: (value) async {
                       Provider.of<WeatherProvider>(context, listen: false)
                           .fetchForecast(value);
@@ -66,26 +70,38 @@ class _HomeViewState extends State<HomeView> {
               ],
             ),
           ),
-          TempeView(temp:temp),
-          SizedBox(
-            height: 24,
+
+          TempeView(temp: temp),
+
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Divider(
+              color: Colors.black54,
+            ),
           ),
           WeatherInfo(forecast: forecast),
           SizedBox(
-            height: 24,
+            height: 12,
           ),
           Center(
-                child: Text(
-                  forecast != null
-                      ? forecast.current.description
-                      : "Ingrese la ciudad",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w300),
-                ),
-              ),
-          
+            child: Text(
+              forecast != null
+                  ? forecast.current.description
+                  : "Ingrese la ciudad",
+              style: GoogleFonts.baloo(fontSize: 20),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Divider(
+              color: Colors.black54,
+            ),
+          ),
+
+          //
+          tempDia != null
+              ? WeatherDaysView(tempDia: tempDia, climDia: climDia)
+              : Container()
         ],
       ),
     );

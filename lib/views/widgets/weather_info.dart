@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_goodm/models/forecast.dart';
 import 'package:prueba_goodm/models/weather.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 class WeatherInfo extends StatelessWidget {
   
   const WeatherInfo({
@@ -25,23 +25,18 @@ class WeatherInfo extends StatelessWidget {
       children: [
         Column(
           children: [
-            Text("Weather",style: TextStyle(
-                  fontSize: 35,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold)),
+            Text("Weather",
+            style: GoogleFonts.baloo(
+                        fontSize: 25, fontWeight: FontWeight.bold),),
             Text(
               forecast !=null ?"${formatTemp(forecast.current.temp)}°": "-",
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700),
+             style: GoogleFonts.baloo(
+                        fontSize: 20, fontWeight: FontWeight.w300),
             ),
             Text(
              forecast !=null ? "Thermal sensation ${formatTemp(forecast.current.feelLikeTemp)}°" :"-",
-              style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w300),
+              style: GoogleFonts.baloo(
+                        fontSize: 15, fontWeight: FontWeight.w300),
             ),
           ],
         ),
